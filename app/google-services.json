@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "143823216192",
+    "project_id": "sound-space-1496d",
+    "storage_bucket": "sound-space-1496d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143823216192:android:bd00e82bda96f4003a49a5",
+        "android_client_info": {
+          "package_name": "com.coding.kotlin_soundspace"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgRFno7RgDPh6V1Fk69SGPPOyHiOUnJwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
