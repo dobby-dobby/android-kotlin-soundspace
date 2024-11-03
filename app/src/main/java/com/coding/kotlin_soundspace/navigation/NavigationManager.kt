@@ -1,13 +1,13 @@
 package com.coding.kotlin_soundspace.navigation
 
-import android.util.Log
-import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.coding.kotlin_soundspace.screen.LoginScreen
+import com.coding.kotlin_soundspace.screen.HomeScreen
 import com.coding.kotlin_soundspace.screen.SplashScreen
+import com.coding.kotlin_soundspace.screen.loginFeature.LoginArea
+import com.coding.kotlin_soundspace.screen.loginFeature.LoginScreen
 
 
 @Composable
@@ -26,6 +26,9 @@ fun NavigationManager() {
         }
         composable<Screens.Login> {
             LoginScreen()
+        }
+        composable<Screens.Home> {
+            HomeScreen()
         }
     }
 }

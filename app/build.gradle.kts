@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.coding.kotlin_soundspace"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.coding.kotlin_soundspace"
@@ -63,7 +63,13 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
 
     // Firebase
+    // Import the BoM for the Firebase platform
     implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.auth)
-    implementation(libs.firebase.analytics)
+
+    // Declare the dependency for the Cloud Firestore library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.ui.auth)
+    // Also add the dependency for the Google Play services library and specify its version
+    implementation(libs.play.services.auth)
 }

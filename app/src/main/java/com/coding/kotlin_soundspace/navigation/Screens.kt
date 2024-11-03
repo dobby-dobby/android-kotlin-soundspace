@@ -8,4 +8,6 @@ class Screens {
     object Splash
     @Serializable
     object Login
+    @Serializable
+    object Home
 }
