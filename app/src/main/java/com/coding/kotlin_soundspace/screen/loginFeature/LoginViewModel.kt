@@ -19,6 +19,4 @@ class LoginViewModel : ViewModel() {
     fun checkUserLoginStatus() {
         auth.checkCurrentAuthState()
     }
-
-    fun navigationUser
 }
