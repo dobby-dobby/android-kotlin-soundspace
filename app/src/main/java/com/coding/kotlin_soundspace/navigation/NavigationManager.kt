@@ -6,7 +6,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.coding.kotlin_soundspace.screen.HomeScreen
 import com.coding.kotlin_soundspace.screen.SplashScreen
-import com.coding.kotlin_soundspace.screen.loginFeature.LoginArea
 import com.coding.kotlin_soundspace.screen.loginFeature.LoginScreen
 
 
