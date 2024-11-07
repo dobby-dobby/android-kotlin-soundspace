@@ -12,7 +12,20 @@
           "package_name": "com.coding.kotlin_soundspace"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "143823216192-mj7r3b5s8sn1bvse2cqusodkdqhp21gp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.coding.kotlin_soundspace",
+            "certificate_hash": "3979481a7a272432e0854769e4d3d93e2fb51386"
+          }
+        },
+        {
+          "client_id": "143823216192-d7ugvrf57ujovjs8h9rkbtccmlmtfe3n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCgRFno7RgDPh6V1Fk69SGPPOyHiOUnJwo"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143823216192-d7ugvrf57ujovjs8h9rkbtccmlmtfe3n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

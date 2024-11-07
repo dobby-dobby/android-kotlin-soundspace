@@ -13,4 +13,6 @@ class FbAuth {
     fun checkCurrentAuthState() {
         auth = Firebase.auth
     }
+
+    
 }

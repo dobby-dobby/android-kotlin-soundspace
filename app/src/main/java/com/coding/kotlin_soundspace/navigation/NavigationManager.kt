@@ -7,10 +7,11 @@ import androidx.navigation.compose.rememberNavController
 import com.coding.kotlin_soundspace.screen.HomeScreen
 import com.coding.kotlin_soundspace.screen.SplashScreen
 import com.coding.kotlin_soundspace.screen.loginFeature.LoginScreen
+import com.coding.kotlin_soundspace.ui.theme.SoundSpaceAppState
 
 
 @Composable
-fun NavigationManager() {
+fun NavigationManager(appState : SoundSpaceAppState) {
     // A Navigation Controller
     val navController = rememberNavController()
 
@@ -23,8 +24,13 @@ fun NavigationManager() {
                 )
             })
         }
+
         composable<Screens.Login> {
-            LoginScreen()
+            LoginScreen( onNavigationToHomeScreen = {
+                navController.navigate(
+                    route = Screens.Home
+                )
+            })
         }
         composable<Screens.Home> {
             HomeScreen()
