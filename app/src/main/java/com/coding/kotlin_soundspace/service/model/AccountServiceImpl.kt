@@ -7,10 +7,12 @@ import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.userProfileChangeRequest
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class AccountServiceImpl @Inject constructor() : AccountService {
@@ -59,8 +61,10 @@ class AccountServiceImpl @Inject constructor() : AccountService {
     }
 
     override suspend fun signInWithGoogle(idToken: String) {
-        val firebaseCredential = GoogleAuthProvider.getCredential(idToken, null)
-        Firebase.auth.signInWithCredential(firebaseCredential).await()
+        withContext(Dispatchers.IO) {
+            val firebaseCredential = GoogleAuthProvider.getCredential(idToken, null)
+            Firebase.auth.signInWithCredential(firebaseCredential).await()
+        }
     }
 
     override suspend fun signInWithEmail(email: String, password: String) {
