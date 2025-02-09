@@ -5,7 +5,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.coding.kotlin_soundspace.screen.HomeScreen
-import com.coding.kotlin_soundspace.screen.SplashScreen
 import com.coding.kotlin_soundspace.screen.loginFeature.LoginScreen
 import com.coding.kotlin_soundspace.ui.theme.SoundSpaceAppState
 
@@ -16,15 +15,7 @@ fun NavigationManager(appState : SoundSpaceAppState) {
     val navController = rememberNavController()
 
     // Navigation Graph
-    NavHost(navController = navController, startDestination = Screens.Splash) {
-        composable<Screens.Splash> {
-            SplashScreen(onNavigateToLoginScreen = {
-                navController.navigate(
-                    route = Screens.Login
-                )
-            })
-        }
-
+    NavHost(navController = navController, startDestination = Screens.Login) {
         composable<Screens.Login> {
             LoginScreen( onNavigationToHomeScreen = {
                 navController.navigate(
@@ -32,6 +23,7 @@ fun NavigationManager(appState : SoundSpaceAppState) {
                 )
             })
         }
+
         composable<Screens.Home> {
             HomeScreen()
         }
