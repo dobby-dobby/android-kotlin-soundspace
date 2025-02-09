@@ -15,11 +15,15 @@ android {
     defaultConfig {
         applicationId = "com.coding.kotlin_soundspace"
         minSdk = 29
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    hilt {
+        enableAggregatingTask = true
     }
 
     buildTypes {
@@ -81,6 +85,9 @@ dependencies {
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.hilt.android.compiler)
+
+    // Add Google Font
+    implementation(libs.androidx.ui.text.google.fonts)
 
 }
 

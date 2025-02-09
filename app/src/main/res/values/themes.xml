@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.Kotlinsoundspace" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Kotlinsoundspace" parent="android:Theme.Material.NoActionBar">
+        <item name="windowSplashScreenBackground">@android:color/black</item>
+        <item name="backgroundColor">@android:color/black</item>
+    </style>
 </resources>
