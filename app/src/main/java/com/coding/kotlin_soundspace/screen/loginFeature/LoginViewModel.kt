@@ -35,29 +35,6 @@ class LoginViewModel @Inject constructor(private val accountService: AccountServ
             block = block
         )
 
-    fun loginUser(email: String, password: String, onResult: (Boolean) -> Unit) {
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    onResult(true) // Successful login
-                } else {
-                    onResult(false) // Login failed
-                }
-            }
-    }
-
-    fun onSignInWithGoogle(credential: Credential, openAndPopUp: (String, String) -> Unit) {
-        launchCatching {
-            if (credential is CustomCredential && credential.type == TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
-                val googleIdTokenCredential = GoogleIdTokenCredential.createFrom(credential.data)
-                accountService.signInWithGoogle(googleIdTokenCredential.idToken)
-                _navigationEvent.value = "HomeScreen"
-            } else {
-                Log.e("Error Tag", "Issue")
-            }
-        }
-    }
-
     fun onSignUpWithGoogle(credential: Credential) {
         launchCatching {
             if (credential is CustomCredential && credential.type == TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
