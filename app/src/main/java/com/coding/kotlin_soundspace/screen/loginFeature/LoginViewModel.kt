@@ -10,7 +10,6 @@ import androidx.lifecycle.viewModelScope
 import com.coding.kotlin_soundspace.service.model.AccountService
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential.Companion.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL
-import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
@@ -34,29 +33,6 @@ class LoginViewModel @Inject constructor(private val accountService: AccountServ
             },
             block = block
         )
-
-    fun loginUser(email: String, password: String, onResult: (Boolean) -> Unit) {
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    onResult(true) // Successful login
-                } else {
-                    onResult(false) // Login failed
-                }
-            }
-    }
-
-    fun onSignInWithGoogle(credential: Credential, openAndPopUp: (String, String) -> Unit) {
-        launchCatching {
-            if (credential is CustomCredential && credential.type == TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
-                val googleIdTokenCredential = GoogleIdTokenCredential.createFrom(credential.data)
-                accountService.signInWithGoogle(googleIdTokenCredential.idToken)
-                _navigationEvent.value = "HomeScreen"
-            } else {
-                Log.e("Error Tag", "Issue")
-            }
-        }
-    }
 
     fun onSignUpWithGoogle(credential: Credential) {
         launchCatching {
